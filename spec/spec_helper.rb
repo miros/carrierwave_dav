@@ -1,6 +1,8 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
+require 'ap'
+require 'webmock/rspec'
 
 require 'carrierwave_dav'
 
@@ -9,5 +11,9 @@ require 'carrierwave_dav'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  
+
+  def stub_any_request
+    stub_request(:any, /.*/)
+  end
+
 end
