@@ -11,6 +11,7 @@ gem "net_dav"
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
+  gem "rspec-core", "~> 2.6.3"
   gem "rspec", "~> 2.6.0"
   gem "yard"
   gem "bundler"
