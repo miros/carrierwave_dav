@@ -16,8 +16,6 @@ group :development do
   gem "yard"
   gem "bundler"
   gem "jeweler"
-  gem "rcov"
-  gem "rcov"
   gem "addressable", "2.2.4"
   gem "webmock"
   gem "awesome_print"
