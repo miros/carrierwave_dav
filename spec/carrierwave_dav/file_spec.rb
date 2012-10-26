@@ -40,7 +40,7 @@ describe CarrierWave::Dav::File do
   end
 
   it "creates connection with appropriate url" do
-    Net::DAV.should_receive(:new).with("http://localhost:1234")
+    CarrierWave::Dav.dav_factory.should_receive(:call).with("http://localhost:1234")
     described_class.new('http://localhost:1234/appstore/applications/file.txt', "http://localhost:1234/appstore/")
   end
 

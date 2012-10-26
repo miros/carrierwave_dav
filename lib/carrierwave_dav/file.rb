@@ -13,7 +13,7 @@ module CarrierWave
 
         @dav_host = file_url.gsub(@file_path, '')
 
-        @connection = connection || Net::DAV.new(@dav_host)
+        @connection = connection || CarrierWave::Dav.dav_factory.call(@dav_host)
         @created_dirs = []
       end
 
@@ -73,6 +73,14 @@ module CarrierWave
         options[:min_depth] ||= 0
         dirs = @created_dirs.select{|dir| dir_depth(dir) >= options[:min_depth]}
         dirs.reverse.each {|folder| delete_path(folder)}
+      end
+
+      def content_type
+        @content_type
+      end
+
+      def content_type=(new_content_type)
+        @content_type = new_content_type
       end
 
       private
