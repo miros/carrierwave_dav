@@ -83,7 +83,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<addressable>, ["= 2.2.4"])
     s.add_dependency(%q<webmock>, [">= 0"])
     s.add_dependency(%q<awesome_print>, [">= 0"])
