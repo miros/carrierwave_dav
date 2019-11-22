@@ -63,7 +63,7 @@ module CarrierWave
           # почему то ответ nginx приводит к этому эксепшену
           # папка тем не менее создаётся
           @created_dirs << path
-        rescue Net::HTTPServerException => exc
+        rescue Net::HTTPClientException => exc
           # если папка уже есть - плевать
         end
       end
