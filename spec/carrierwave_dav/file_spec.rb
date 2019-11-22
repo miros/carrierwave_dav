@@ -88,7 +88,7 @@ describe CarrierWave::Dav::File do
       end
 
       it "memorizes only dirs that were really created" do
-       connection.should_receive(:mkdir).with("/some/").and_raise(Net::HTTPServerException.new(nil, nil))
+       connection.should_receive(:mkdir).with("/some/").and_raise(Net::HTTPClientException.new(nil, nil))
 
        file.mkpath("/some/long/path")
        file.created_dirs.should == ["/some/long/", "/some/long/path/"]
@@ -118,8 +118,8 @@ describe CarrierWave::Dav::File do
 
           connection.should_receive(:delete).with("/some/very/long/path/").ordered
           connection.should_receive(:delete).with("/some/very/long/").ordered
-          connection.should_not_receive(:delete).with("/some/very/")  
-          connection.should_not_receive(:delete).with("/some/")   
+          connection.should_not_receive(:delete).with("/some/very/")
+          connection.should_not_receive(:delete).with("/some/")
 
           file.destroy_created_dirs!(:min_depth => 3)
         end
